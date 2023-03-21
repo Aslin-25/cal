@@ -1,0 +1,88 @@
+<script type=text/javascript>
+ Validate()
+ {
+ var i;
+var name_str=document.my_form.name;
+var phoneID=document.my_form.ph_txt;
+var ph_str=document.my_form.ph_txt.value;
+var str=document.my_form.Email_txt.value;
+if((name_str.value==null)||(name_str.value=="")&&(name_str.length<5))
+{
+alert("Enter some name");
+return false;
+}
+if(document.my_form.Age_txt.value=="")
+{
+alert("Enter Some Age");
+return false;
+}
+if((document.my_form.Age_txt.value<"5")&&(document.my_form.Age_txt.value>"40"))
+{
+alert("Invalid Age. Age should be between 5 and 40");
+return false;
+}
+if(ph_str.length<1 ||ph_str.length>11)
+{
+alert("Invalid length of Phone Number")
+return false 
+}
+ for (i = 0; i < ph_str.length; i++)
+{ 
+ var ch = ph_str.charAt(i);
+ if (((ch < 0) || (ch > 9))){
+alert("Invalid Phone Number");
+phoneID.focus()
+return false;
+}
+ }
+var index_at=str.indexOf("@")
+var len=str.length
+var index_dot=str.indexOf(".")
+var emailID=document.my_form.Email_txt
+if ((emailID.value==null)||(emailID.value==""))
+{
+alert("Please Enter your Email ID");
+
+emailID.focus()
+return false;
+}
+if (str.indexOf("@")==-1)
+{
+ alert("Invalid E-mail ID");
+ return false;
+}
+if (str.indexOf(".")==-1 || str.indexOf(".")==0 || str.indexOf(".")==index_at)
+{
+ alert("Invalid E-mail ID");
+ return false;
+}
+if (str.indexOf("@",(index_at+1))!=-1)
+{
+ alert("Invalid E-mail ID");
+ return false;
+}
+if (str.indexOf(" ")!=-1)
+{
+ alert("Invalid E-mail ID");
+ return false;
+}
+if (str.pass_txt != str.confirm_pass_txt)
+{
+	alert("Password should be equal to confirm password");
+	return false;
+}
+
+if (!document.my_form.group1[0].checked && !document.my_form.group1[0].checked)
+{
+alert("Please Select Sex");
+return false;
+}
+if (!document.my_form.group1[0].checked && !document.my_form.group1[0].checked)
+{
+alert("Please Select Gender");
+return false;
+}
+alert("Your details has been registered");
+return true;
+}
+</script>
